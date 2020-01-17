@@ -7,4 +7,4 @@ Het is geschreven voor de ocolus quest.
 Een handig youtube filmpje voor het opstarten van een unity project voor de quest : https://www.youtube.com/watch?v=qiJpjnzW-mw&t=223s
 
 1. We beginnen met het aanmaken van een unity project.
-![Create][/afbeeldingen/create.png]
+![Create](/afbeeldingen/create.png)
