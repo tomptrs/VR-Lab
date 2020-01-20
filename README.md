@@ -151,6 +151,7 @@ public class InvertedSphere : EditorWindow
 ```
 
 Nu we dit hebben aangemaakt kunnen we de sphere gebruiken. Dit doen we door in de scene een inverted sphere toe te voegen.
+
 ![inverted sphere](/afbeeldingen/sphere.png)
 
 Nu we de sphere hebben kunnen we de video die we willen afspelen er gewoon opslepen.
