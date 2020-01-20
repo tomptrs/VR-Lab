@@ -67,7 +67,7 @@ public class VideoManager : MonoBehaviour
             if( anim.GetCurrentAnimatorStateInfo(0).IsName("open container state") && 
                 anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
             {
-                con.position = Away;
+                container.transform.position = Away;
                 videoLight.SetActive(true);
                 anim.SetBool("start", false);
                 anim.SetBool("stop", true);
@@ -82,7 +82,7 @@ public class VideoManager : MonoBehaviour
                 if (end || OVRInput.GetDown(OVRInput.Button.Two)){
                     startEnd = true;
                     rig.position = PositionBlur;
-                    con.position = Home;
+                    container.transform.position = Home;
                     Blur.Play();
                     Video.Pause();
                 }
