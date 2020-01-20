@@ -7,24 +7,31 @@ Het is geschreven voor de ocolus quest.
 Een handig youtube filmpje voor het opstarten van een unity project voor de quest : https://www.youtube.com/watch?v=qiJpjnzW-mw&t=223s
 
 Wat we nodig hebben voor we beginnen is een unity versie met de android build support ook geïnstalleerd. (Dit kan toegevoegd worden op al eerder geïnstalleerde unity versies.)
+
 ![toevoegen Android](/afbeeldingen/android.png)
 
 1. We beginnen met het aanmaken van een nieuw 3D unity project.
+
 ![Create](/afbeeldingen/create.png)
 
 2. We gaan beginnen met in de asset store de oculus integration plugin te downloaden.
+
 ![oculusPlugin](/afbeeldingen/oculusplugin.png)
 
 2. Bij de build settings moeten we nu het platform wijzigen naar Android. (Als er nog geen android module geladen is moet je deze installeren met de open download page knop.)
+
 ![build Settings](/afbeeldingen/buildSetting.png)
 
 3. Als we veranderd zijn van platform moeten we nu naar de player settings gaan en hier een paar instellingen veranderen. 
 
 4. Wat we eerst bij de player settings gaan veranderen is bij de XR settings Virtual Reality toelaten en de oculus SDK toevoegen.
+
 ![xr settings](/afbeeldingen/xrsettings.png)
 
-5. Hierna gaan we bij de plater settings naar de tab Other Settings en hier moeten we twee dingen veranderen. Voor te beginnen moet de Vulkan grafics API verwijderd worden en moet de API veranderen naar een hogere API. Dit moet minimum de 4.4 API zijn 
+5. Hierna gaan we bij de plater settings naar de tab Other Settings en hier moeten we twee dingen veranderen. Voor te beginnen moet de Vulkan grafics API verwijderd worden en moet de API veranderen naar een hogere API. Dit moet minimum de 4.4 API zijn
+
 ![API](/afbeeldingen/API.png)
+
 ![graphics API](/afbleedingen/grapicsAPI.png)
 
 6. Nu is het unity project klaar en moeten we nog een paar dingen doen voordat we het unity project kunnen pushen naar de quest. In de oculus app waarmee je de quest hebt verbonden op more settings drukken developer settings en de developper mode enablen. Als we dit gedaan hebben gaan we de de bril verbinden met de computer. Dit doen we met de usb C kabel dat meegeleverd is. Als we dit gedaan hebben krijgen we in de bril een popup of we USB debugging toestaan van deze computer. Vink always allow aan en accepteer de popup.
@@ -39,21 +46,27 @@ De file waarmee wij gewerkt hebben is een .fbx file gemaakt met cinema 4D. Hieri
 ### animatie container
 
 1. We gaan beginnen met een Animatie controller aan te maken.
+
 ![aanmaken animator](/afbeeldingen/aanmaken_animator.png) 
 
 2. De animatie controller laat toe om states te maken in een animatie. Aan elke state kunnen we een bool hangen dat de state van de animatie gaat triggeren. Wat je altijd moet doen is een default state maken. Hierin zal de animatie altijd opstarten. Voor de containet hebben we dit de waiting state genoemd. We hebben hiernaast ook een state waarbij de container opengaat. Zoals je kan zien hebben we ook twee parameters nodig de start en de stop paramater. Deze hebben we gelinkt aan de transities (pijlen tussen de twee states). Dus wat er nu gaat gebeuren is hetvolgende: Als we in de waiting state zijn en we maken start true dan zal er een transitie gebeuren naar de open container state en zal de containter opengaan. Als we nu wachten tot de container open is en we zetten de stop paramater op true zal de container terug naar de waiting state gaan en dus terug naar het begin van de animatie gaan. Nu we tussen de states kunnen gaan moeten we nog aan de open container state de effectieve animatie toevoegen. Die staat in het fbx file en sleep je in het kadertje van motion
+
 ![animator](/afbeeldingen/animator.png)
+
 ![open container state](/afbeeldingen/state.png)
 
 3. Als we de animatie controller hebben geconfigureerd gaan we het fbx file in de scene slepen en gaan we zien dat er nog een controller toegevoegd moet worden. Dit doen we door de net aangemaakte controller te slepen in de animator.
+
 ![animator container](/afbeeldingen/animator_container.png)
 
 4. Nu is het klaar om de controller te gaan besturen in het script. We beginnen met het declaren van de animator.
+
 ```c#
     public Animator anim;
 ```
 
 5. Wat we de Update functie gaan doen is de bools setten. Wanneer we willen beginnen in met de functie gaan we de start bool op true zetten en de stop op false. We kunnen met een simple if het einde van de van de open container state bepalen en hierin de start op false zetten en de stop op true. We moeten nu de animatie terug klaar zetten zodat als we opnieuw beginnen de animatie terug gaat afspelen.
+
 ```c#
     // starten
     anim.SetBool("start", true);
@@ -169,6 +182,7 @@ We declareren eerst de twee sphere als gameobject. Hier gaan we laten de videopl
 
 In de start functie die 1 keer wordt uitgevoerd als het programma opstart gaan we de videoplayer uit de gameobjecten halen en de video's voorbereiden.
 Op een videospeler kan je een functie toevoegen die uitgevoerd wordt als de video ten einde is. Hier heb ik gebruik van gemaakt om een bool te togglen zodat ik weet wanneer de video gedaan is.
+
 ```c#
     Video = VideoSphere.GetComponent<VideoPlayer>();
     Blur = BlurSphere.GetComponent<VideoPlayer>();
@@ -180,6 +194,7 @@ Op een videospeler kan je een functie toevoegen die uitgevoerd wordt als de vide
     Blur.loopPointReached += eindeBlur;
 ```
 De functie die dan wordt uitgevoerd ziet er als volgt uit:
+
 ```c#
     void eindeVideo(UnityEngine.Video.VideoPlayer vp){
         //code die moet worden uitgevoerd...
@@ -187,6 +202,7 @@ De functie die dan wordt uitgevoerd ziet er als volgt uit:
 ```
 
 Wat we met de videoplayer verder kunnen doen is deze starten, pauzeren en stoppen. Dit doen we op deze manier: 
+
 ```c#
     Blur.Pause();
     Video.Play();
