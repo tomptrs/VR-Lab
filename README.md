@@ -32,7 +32,7 @@ Wat we nodig hebben voor we beginnen is een unity versie met de android build su
 
 ![API](/afbeeldingen/API.png)
 
-![graphics API](/afbleedingen/grapicsAPI.png)
+![graphics API](/afbeeldingen/grapicsAPI.png)
 
 6. Nu is het unity project klaar en moeten we nog een paar dingen doen voordat we het unity project kunnen pushen naar de quest. In de oculus app waarmee je de quest hebt verbonden op more settings drukken developer settings en de developper mode enablen. Als we dit gedaan hebben gaan we de de bril verbinden met de computer. Dit doen we met de usb C kabel dat meegeleverd is. Als we dit gedaan hebben krijgen we in de bril een popup of we USB debugging toestaan van deze computer. Vink always allow aan en accepteer de popup.
 
