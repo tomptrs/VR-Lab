@@ -81,9 +81,9 @@ De file waarmee wij gewerkt hebben is een .fbx file gemaakt met cinema 4D. Hieri
     }
 ```
 
-### 360 video aan de binnekant van een sphere
+### 360 video aan de binnenkant van een sphere
 
-De uitdaging was om aan de binnekant van de sphere een video te tonen. Dit hebben we gedaan door met een script een game object te maken dat aan de binnekant van de sphere de mogelijkheid heeft om een video af te spelen. Voor dit script te laten werken voor de oculus moeten we het in een nieuw mapje zetten genaamd Editor anders gaat het niet werken.
+De uitdaging was om aan de binnenkant van de sphere een video te tonen. Dit hebben we gedaan door met een script een game object te maken dat aan de binnekant van de sphere de mogelijkheid heeft om een video af te spelen. Voor dit script te laten werken voor de oculus moeten we het in een nieuw mapje zetten genaamd Editor anders gaat het niet werken.
 
 ```c#
 using System.Collections;
